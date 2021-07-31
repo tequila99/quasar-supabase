@@ -1,2 +1,2 @@
 # quasar-supabase
-Auth in supabase.io
+Пример авторизации в supabase с помощью quasar.io
