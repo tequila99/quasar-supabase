@@ -1,0 +1,51 @@
+// app global css in SCSS form
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  src: url(../assets/fonts/Inter-ExtraLight.woff);
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  src: url(../assets/fonts/Inter-Light.woff);
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../assets/fonts/Inter-Regular.woff);
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url(../assets/fonts/Inter-Medium.woff);
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-tyle: normal;
+  font-weight: 700;
+  src: url(../assets/fonts/Inter-Bold.woff)
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  src: url(../assets/fonts/Inter-ExtraBold.woff);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.q-textarea .q-field__native, .q-textarea .q-field__prefix, .q-textarea .q-field__suffix {
+  line-height: 1.5rem !important;
+}
