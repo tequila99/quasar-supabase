@@ -10,6 +10,13 @@ export const supabaseClient = createClient(
 export default boot(async ({ app, store, router, redirect }) => {
   supabaseClient.auth.onAuthStateChange((event, session) => {
     console.log(event, session)
+    store.dispatch('auth/setSession', session)
+    if (event === 'SIGNED_IN') {
+      router.push({ path: '/' })
+    }
+    if (event === 'SIGNED_OUT') {
+      router.push({ path: '/auth/login' })
+    }
   })
   router.beforeEach(async (to, from, next) => {
     const authRequired = to.matched.some(route => route.meta.authRequired)

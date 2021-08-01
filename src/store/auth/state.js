@@ -1,7 +1,8 @@
 export default function () {
   return {
-    isAuthenticated: false,
-    isReady: false,
-    uuid: null
+    // isAuthenticated: false,
+    // isReady: false,
+    // uuid: null,
+    session: null
   }
 }

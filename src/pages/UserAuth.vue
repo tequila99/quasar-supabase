@@ -68,8 +68,15 @@ q-page(padding)
       padding="md xs"
       label="Войти с помощью Google"
       icon='fab fa-google'
-      @click='handleLoginGoogle'
-    )
+      @click='handleLoginProvider("google")'
+      )
+    q-btn.full-width.q-mt-sm(
+      color="dark"
+      padding="md xs"
+      label="Войти с помощью Github"
+      icon='fab fa-github'
+      @click='handleLoginProvider("github")'
+      )
     .q-ml-lg.q-mt-lg.text-weight-medium
       p
         router-link.text-blue(:to="routeAuthentication")
@@ -81,9 +88,9 @@ q-page(padding)
 
 <script>
 import { mapActions } from 'vuex'
-// import { loadingSpinner } from '../mixins'
+import { loadingSpinner } from '../mixins'
 export default {
-  // mixins: [loadingSpinner],
+  mixins: [loadingSpinner],
   name: 'UserAuth',
   computed: {
     getAuthTitle () {
@@ -109,38 +116,42 @@ export default {
   },
   methods: {
     ...mapActions({
-      createUser: 'auth/createUser'
-    //   login: 'auth/login',
-    //   loginGoogle: 'auth/loginGoogle',
-    //   showError: 'logs/showError'
+      showError: 'logs/showError'
     }),
     onSubmit () {
       const { email, password } = this
-      // console.log(email, password)
       this.$refs.emailAuthenticationForm.validate()
         .then(async success => {
           if (success) {
             this.isLoading = true
             try {
               if (this.isRegistration) {
-                await this.createUser({ email, password })
+                const { error } = await this.$supabase.auth.signUp({ email, password })
+                if (error) throw new Error(error)
               } else {
-                // await this.login({ email, password })
+                const { error } = await this.$supabase.auth.signIn({ email, password })
+                if (error) throw new Error(error)
               }
             } catch (err) {
-              // this.showError(err)
+              this.showError(err)
             } finally {
               this.isLoading = false
             }
           }
         })
     },
-    async handleLoginGoogle () {
-      // try {
-      //   await this.loginGoogle()
-      // } catch (err) {
-      //   this.showError(err)
-      // }
+    async handleLoginProvider (provider) {
+      this.isLoading = true
+      try {
+        const { error } = await this.$supabase.auth.signIn({
+          provider
+        })
+        if (error) throw new Error(error)
+      } catch (err) {
+        this.showError(err)
+      } finally {
+        // this.isLoading = false
+      }
     }
   }
 }

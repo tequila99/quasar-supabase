@@ -5,9 +5,9 @@
         404
       </div>
 
-      <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
-      </div>
+      <p class="text-caption q-ma-xl">
+        Oops. Nothing here...{{ $route.path }}
+      </p>
 
       <q-btn
         class="q-mt-xl"
@@ -26,6 +26,9 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Error404'
+  name: 'Error404',
+  mounted () {
+    console.log(this.$route.path)
+  }
 })
 </script>

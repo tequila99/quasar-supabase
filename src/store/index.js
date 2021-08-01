@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 import auth from './auth'
 import user from './user'
 import loading from './loading'
+import logs from './logs'
 // import example from './module-example'
 
 /*
@@ -18,7 +19,7 @@ export default store(function (/* { ssrContext } */) {
   const Store = createStore({
     modules: {
       // example
-      auth, user, loading
+      auth, user, loading, logs
     },
 
     // enable strict mode (adds overhead!)

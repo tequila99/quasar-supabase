@@ -1,15 +1,18 @@
-import { supabaseClient } from '../../boot/supabase'
+// import { supabaseClient } from '../../boot/supabase'
 // import router from '../../router'
 
-export const createUser = async function (_, { email, password }) {
-  console.log(supabaseClient)
-  console.log(email, password)
-  const { user, session, error } = await supabaseClient.auth.signUp({
-    email,
-    password
-  })
-  console.log(user, session, error)
+export const setSession = function ({ commit }, session) {
+  commit('setSession', session)
 }
+// export const createUser = async function (_, { email, password }) {
+//   console.log(supabaseClient)
+//   console.log(email, password)
+//   const { user, session, error } = await supabaseClient.auth.signUp({
+//     email,
+//     password
+//   })
+//   console.log(user, session, error)
+// }
 
 // export const login = async function (_, { email, password }) {
 //   await loginWithEmail(email, password)
