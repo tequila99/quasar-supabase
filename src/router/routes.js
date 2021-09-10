@@ -13,6 +13,17 @@ const routes = [
         path: 'register',
         name: 'Register',
         component: () => import('pages/UserAuth.vue')
+      },
+      {
+        path: 'forgot-password',
+        name: 'ForgotPassword',
+        component: () => import('pages/ForgotPassword.vue')
+      },
+      {
+        path: 'change-password',
+        name: 'ChangePassword',
+        component: () => import('pages/ChangePassword.vue'),
+        meta: { authRequired: true }
       }
     ]
   },
@@ -21,7 +32,10 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     meta: { authRequired: true },
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      {
+        path: '',
+        component: () => import('pages/Index.vue')
+      }
     ]
   },
 

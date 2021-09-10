@@ -34,3 +34,5 @@ yarn-error.log*
 
 # Файл переменных окружения
 .quasar.env.json
+
+.quasar.env.json

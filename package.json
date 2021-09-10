@@ -2,13 +2,14 @@
   "name": "quasar-supabase",
   "version": "0.0.1",
   "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "productName": "Квазар.Тестирование",
   "author": "Ivan Milovanov <tequila00@yandex.ru>",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",
     "test": "echo \"No test specified\" && exit 0",
-    "dev": "cross-env QENV=development quasar dev"
+    "dev": "cross-env QENV=development quasar dev",
+    "build": "cross-env QENV=development quasar build"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
@@ -17,7 +18,8 @@
     "core-js": "^3.6.5",
     "quasar": "^2.0.0",
     "vue-i18n": "^9.0.0-beta.0",
-    "vuex": "^4.0.1"
+    "vuex": "^4.0.1",
+    "vuex-persistedstate": "^4.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",

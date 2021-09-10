@@ -1,17 +1,24 @@
-<template>
-  <q-page class="flex flex-center">
-   <!--  <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    > -->
-  </q-page>
+<template lang='pug'>
+q-page.flex.flex-center
 </template>
 
 <script>
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'PageIndex'
+  name: 'PageIndex',
+  props: {
+    accessToken: {
+      type: String,
+      default: ''
+    },
+    type: {
+      type: String,
+      default: 'none'
+    }
+  },
+  mounted () {
+    console.log(this.$route)
+  }
 })
 </script>

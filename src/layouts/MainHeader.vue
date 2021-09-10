@@ -10,7 +10,7 @@ q-header(elevated)
       @click='$emit("toggle")'
     )
     q-toolbar-title {{ title }}
-    div Quasar v{{ $q.version }}
+    div  v {{ version }}
     q-btn(
       icon='o_logout'
       size='md'
@@ -29,6 +29,10 @@ export default {
     title: {
       type: String,
       default: 'Test app'
+    },
+    version: {
+      type: String,
+      default: ''
     }
   },
   methods: {

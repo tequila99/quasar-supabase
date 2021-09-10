@@ -1,3 +1,3 @@
-export function setloading (state, payload) {
+export function setLoading (state, payload) {
   state.isLoading = !!payload
 }

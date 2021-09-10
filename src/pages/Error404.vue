@@ -28,7 +28,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'Error404',
   mounted () {
-    console.log(this.$route.path)
+    // console.log(this.$route.path)
   }
 })
 </script>
