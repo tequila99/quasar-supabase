@@ -7,23 +7,37 @@ const routes = [
       {
         path: 'login',
         name: 'Login',
-        component: () => import('pages/UserAuth.vue')
+        component: () => import('pages/user/UserAuth.vue')
       },
       {
         path: 'register',
         name: 'Register',
-        component: () => import('pages/UserAuth.vue')
+        component: () => import('pages/user/UserAuth.vue')
       },
       {
         path: 'forgot-password',
         name: 'ForgotPassword',
-        component: () => import('pages/ForgotPassword.vue')
+        component: () => import('src/pages/user/ForgotPassword.vue')
       },
       {
         path: 'change-password',
         name: 'ChangePassword',
-        component: () => import('pages/ChangePassword.vue'),
+        component: () => import('src/pages/user/ChangePassword.vue'),
         meta: { authRequired: true }
+      }
+    ]
+  },
+  {
+    path: '/user',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: 'profile',
+        name: 'Профиль',
+        component: () => import('pages/user/UserProfile.vue'),
+        meta: {
+          authRequired: true
+        }
       }
     ]
   },

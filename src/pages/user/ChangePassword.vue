@@ -49,7 +49,7 @@ q-page(padding)
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { loadingSpinner } from '../mixins'
+import { loadingSpinner } from '../../mixins'
 export default {
   name: 'ChangePassword',
   mixins: [loadingSpinner],

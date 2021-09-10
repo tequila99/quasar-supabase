@@ -25,7 +25,7 @@ q-page(padding)
 
 <script>
 import { mapActions } from 'vuex'
-import { loadingSpinner } from '../mixins'
+import { loadingSpinner } from '../../mixins'
 
 export default {
   mixins: [loadingSpinner],
